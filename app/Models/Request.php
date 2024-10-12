@@ -11,11 +11,14 @@ class Request extends Model
 
     // กำหนดฟิลด์ที่อนุญาตให้ทำการ mass assignment
     protected $fillable = [
-        'user_id',      // อนุญาตให้ระบุ user_id
-        'name',         // อนุญาตให้ระบุชื่อ
-        'address',      // อนุญาตให้ระบุที่อยู่
-        'phone_number', // อนุญาตให้ระบุเบอร์โทร
-        'status',       // อนุญาตให้ระบุสถานะ
-        'description',  // อนุญาตให้ระบุรายละเอียด
+        'user_id',
+        'name',
+        'address', // เพิ่มที่อยู่
+        'phone_number',
+        'status',
+        'description',
+        'latitude',
+        'longitude',
     ];
+
 }

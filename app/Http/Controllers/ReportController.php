@@ -45,24 +45,36 @@ class ReportController extends Controller
         return view('request.index');
     }
 
-    // เมธอดสำหรับบันทึกคำขอความช่วยเหลือ
     public function storeHelpRequest(Request $request)
     {
+        // ตรวจสอบและ validate ข้อมูลที่ส่งมา
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-            'address' => 'required|string',
+            'address' => 'required|string', // เพิ่มการ validate สำหรับที่อยู่
             'phone_number' => 'required|string|max:15',
             'description' => 'nullable|string',
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric',
         ]);
 
-        HelpRequest::create([
-            'user_id' => auth()->id(),
-            'name' => $validatedData['name'],
-            'address' => $validatedData['address'],
-            'phone_number' => $validatedData['phone_number'],
-            'description' => $validatedData['description'],
-        ]);
+        // สร้างคำขอความช่วยเหลือใหม่ในฐานข้อมูล
+        try {
+            HelpRequest::create([
+                'user_id' => auth()->id(), // สมมติว่าผู้ใช้ล็อกอิน
+                'name' => $validatedData['name'],
+                'address' => $validatedData['address'], // ใช้ค่าที่ได้จากฟอร์ม
+                'phone_number' => $validatedData['phone_number'],
+                'description' => $validatedData['description'] ?? '',
+                'latitude' => $validatedData['latitude'],
+                'longitude' => $validatedData['longitude'],
+            ]);
 
-        return redirect()->route('request.index')->with('success', 'คำขอความช่วยเหลือถูกส่งเรียบร้อยแล้ว');
+            return redirect()->route('request.index')->with('success', 'คำขอความช่วยเหลือถูกส่งเรียบร้อยแล้ว');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['msg' => 'เกิดข้อผิดพลาด: ' . $e->getMessage()]);
+        }
     }
+
+
+
 }

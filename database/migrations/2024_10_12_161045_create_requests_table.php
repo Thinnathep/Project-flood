@@ -14,8 +14,10 @@ class CreateRequestsTable extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('phone_number');
-            $table->string('status')->default('pending'); // ค่าดีฟอลต์เป็น pending
+            $table->string('status')->default('pending');
             $table->text('description')->nullable();
+            $table->decimal('latitude', 10, 7);  // ฟิลด์ latitude
+            $table->decimal('longitude', 10, 7); // ฟิลด์ longitude
             $table->timestamps();
         });
     }
@@ -25,3 +27,4 @@ class CreateRequestsTable extends Migration
         Schema::dropIfExists('requests');
     }
 }
+
