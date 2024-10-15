@@ -9,15 +9,14 @@
             <button type="submit" class="bg-blue-500 text-white p-2 rounded mt-2">ค้นหา</button>
         </form>
 
-
         <div class="bg-white shadow overflow-hidden sm:rounded-lg">
             <div class="border-t border-gray-200">
                 @foreach ($news as $item)
                     <a href="{{ route('news.show', $item->id) }}" class="block">
                         <div
-                            class="bg-gray-50 px-6 py-4 border-b border-gray-200 hover:bg-gray-100 transition-colors duration-300">
+                            class="bg-gray-50 px-4 py-4 border-b border-gray-200 hover:bg-gray-100 transition-colors duration-300 md:px-6">
                             <div class="flex items-center justify-between">
-                                <h2 class="text-xl font-semibold text-gray-900">{{ $item->title }}</h2>
+                                <h2 class="text-lg md:text-xl font-semibold text-gray-900">{{ $item->title }}</h2>
                                 <span class="text-sm text-gray-500">{{ $item->created_at->format('d M Y') }}</span>
                             </div>
                             <p class="mt-2 text-sm text-gray-700">

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mx-auto mt-8">
+    <div class="container mx-auto mt-8 px-4 sm:px-0">
         <h1 class="text-3xl font-bold mb-4">สถานที่ปลอดภัย</h1>
         <a href="{{ route('safe-places.create') }}"
             class="inline-block bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition">
@@ -15,16 +15,15 @@
         @endif
 
         <div class="flex items-center mb-4">
-            <form action="{{ route('safe-places.search') }}" method="GET" class="flex space-x-2">
+            <form action="{{ route('safe-places.search') }}" method="GET" class="flex space-x-2 w-full">
                 <input type="text" name="query" placeholder="ค้นหาสถานที่ปลอดภัย"
-                    class="border border-gray-300 px-4 py-2 rounded" required>
+                    class="border border-gray-300 px-4 py-2 rounded w-full" required>
                 <button type="submit"
                     class="bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition">
                     ค้นหา
                 </button>
             </form>
         </div>
-
 
         <div class="overflow-x-auto mt-6">
             <table class="min-w-full bg-white border border-gray-300 rounded-lg shadow-lg">

@@ -33,21 +33,16 @@
             <div class="border-t border-gray-200">
                 <ul class="divide-y divide-gray-200">
                     <!-- ตัวอย่างรายการกิจกรรมล่าสุด -->
-                    <ul class="divide-y divide-gray-200">
-                        <!-- ตัวอย่างรายการกิจกรรมล่าสุด -->
-                        <li class="py-4 flex items-center space-x-4 ml-4"> <!-- เพิ่ม margin-left ที่นี่ -->
-                            <span
-                                class="flex-shrink-0 bg-blue-100 text-blue-800 rounded-full h-8 w-8 flex items-center justify-center">JD</span>
-                            <span class="text-sm font-medium text-gray-900">ผู้ใช้ JohnDoe ส่งรายงาน</span>
-                        </li>
-                        <li class="py-4 flex items-center space-x-4 ml-4"> <!-- เพิ่ม margin-left ที่นี่ -->
-                            <span
-                                class="flex-shrink-0 bg-green-100 text-green-800 rounded-full h-8 w-8 flex items-center justify-center">JD</span>
-                            <span class="text-sm font-medium text-gray-900">ผู้ใช้ JaneDoe ลงทะเบียนเป็นอาสาสมัคร</span>
-                        </li>
-                        <!-- เพิ่มกิจกรรมอื่น ๆ ได้ตามต้องการ -->
-                    </ul>
-
+                    <li class="py-4 flex items-center space-x-4 px-4 sm:px-6">
+                        <span
+                            class="flex-shrink-0 bg-blue-100 text-blue-800 rounded-full h-8 w-8 flex items-center justify-center">JD</span>
+                        <span class="text-sm font-medium text-gray-900">ผู้ใช้ JohnDoe ส่งรายงาน</span>
+                    </li>
+                    <li class="py-4 flex items-center space-x-4 px-4 sm:px-6">
+                        <span
+                            class="flex-shrink-0 bg-green-100 text-green-800 rounded-full h-8 w-8 flex items-center justify-center">JD</span>
+                        <span class="text-sm font-medium text-gray-900">ผู้ใช้ JaneDoe ลงทะเบียนเป็นอาสาสมัคร</span>
+                    </li>
                     <!-- เพิ่มกิจกรรมอื่น ๆ ได้ตามต้องการ -->
                 </ul>
             </div>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="max-w-2xl mx-auto py-10">
+    <div class="max-w-2xl mx-auto py-10 px-4">
         <h1 class="text-3xl font-bold text-center mb-8">ติดต่อเรา</h1>
 
         @if (session('success'))
@@ -41,7 +41,8 @@
             </div>
 
             <div class="text-center">
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                <button type="submit"
+                    class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">
                     ส่งข้อความ
                 </button>
             </div>

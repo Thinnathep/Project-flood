@@ -2,6 +2,11 @@
 
 @section('content')
     <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+        <!-- Back Button -->
+        <div class="mb-4">
+            <a href="{{ route('forum.index') }}" class="text-blue-600 hover:underline">ย้อนกลับไปยังฟอรั่ม</a>
+        </div>
+
         <!-- Title Section -->
         <h1 class="text-4xl font-bold text-center mb-8 text-gray-800">{{ $post->title }}</h1>
 

@@ -13,6 +13,7 @@ class ForumPost extends Model
         'user_id',
         'title',
         'content',
+        'image', // เพิ่ม image ที่นี่
     ];
 
     public function user()

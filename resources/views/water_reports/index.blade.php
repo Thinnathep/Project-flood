@@ -7,7 +7,14 @@
             class="inline-block px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 mb-4">
             เพิ่มรายงานใหม่
         </a>
-        <table class="w-full border-collapse border">
+
+
+
+    </div>
+@endsection
+
+
+{{-- <table class="w-full border-collapse border">
             <thead>
                 <tr>
                     <th class="border p-2">สถานที่</th>
@@ -36,6 +43,4 @@
                     </tr>
                 @endforeach
             </tbody>
-        </table>
-    </div>
-@endsection
+        </table> --}}

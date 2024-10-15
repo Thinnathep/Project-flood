@@ -38,12 +38,15 @@ Route::middleware([
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //forum
-Route::get('/forum', [ForumController::class, 'index'])->name('forum');
+// Route::get('/forum', [ForumController::class, 'index'])->name('forum');
 Route::get('/forum/create', [ForumController::class, 'create'])->name('forum.create');
 Route::post('/forum', [ForumController::class, 'store'])->name('forum.store');
 Route::get('/forum/{id}', [ForumController::class, 'show'])->name('forum.show');
 Route::post('forum/{forumPost}/comments', [CommentController::class, 'store'])->name('forum.comments.store');
 Route::get('/forum', [ForumController::class, 'index'])->name('forum.index');
+Route::delete('/forum/posts/{post}', [ForumController::class, 'destroy'])->name('forum.destroy');
+Route::get('/forum/posts/{post}/edit', [ForumController::class, 'edit'])->name('forum.edit');
+Route::put('/forum/posts/{post}', [ForumController::class, 'update'])->name('forum.update');
 
 // Like a post
 Route::post('/like-post/{postId}', [ForumController::class, 'likePost'])->name('forum.like');
@@ -61,7 +64,6 @@ Route::prefix('request')->group(function () {
     Route::get('/', [ReportController::class, 'helpRequestIndex'])->name('request.index');
     Route::post('/', [ReportController::class, 'storeHelpRequest'])->name('request.store');
 });
-
 
 // Volunteer routes
 Route::prefix('volunteer')->group(function () {
@@ -90,6 +92,8 @@ Route::get('/safe-places/search', [SafePlaceController::class, 'search'])->name(
 
 Route::get('/apiwater-resources', [WaterResourceController::class, 'fetchWaterResources']);
 Route::get('/water-resources', [WaterResourceController::class, 'index'])->name('water-resources');
+
 Route::resource('water-reports', WaterReportController::class);
 Route::get('water-reports', [WaterReportController::class, 'index'])->name('water-reports.index');
 Route::get('/fetch-water-levels', [WaterReportController::class, 'fetchWaterLevels'])->name('fetch-water-levels');
+Route::get('/rainfall-data', [WaterReportController::class, 'getRainfallData']);
