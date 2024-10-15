@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             NewsSeeder::class,
             ContactsSeeder::class,
             RequestSeeder::class,
+            RoleSeeder::class,
         ]);
     }
 }

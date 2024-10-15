@@ -26,10 +26,14 @@ class CreateNewUser implements CreatesNewUsers
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
 
-        return User::create([
+        // สร้างผู้ใช้ใหม่
+        $user = User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
+            'role' => 'user', // กำหนดบทบาทให้ผู้ใช้เป็น User โดยตรง
         ]);
+
+        return $user;
     }
 }

@@ -12,7 +12,8 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\WaterResourceController;
 use App\Http\Controllers\WaterReportController;
-
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 
 
 // Route::get('/', function () {
@@ -31,6 +32,28 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/dashboard', [UserController::class, 'dashboard'])->name('admin.dashboard');
+
+    // เส้นทางสำหรับแสดงรายชื่อผู้ใช้
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+
+    // เส้นทางสำหรับสร้างผู้ใช้
+    Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+
+    // เส้นทางสำหรับจัดเก็บผู้ใช้ใหม่
+    Route::post('/users', [UserController::class, 'store'])->name('users.store');
+
+    // เส้นทางสำหรับการแก้ไขผู้ใช้
+    Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit'); // เพิ่มเส้นทางนี้
+
+    // เส้นทางสำหรับการอัปเดตผู้ใช้
+    Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
+
+    // เส้นทางสำหรับการลบผู้ใช้
+    Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 });
 
 
@@ -86,9 +109,6 @@ Route::group(['prefix' => 'safe-place'], function () {
 
 // safe
 Route::get('/safe-places/search', [SafePlaceController::class, 'search'])->name('safe-places.search');
-
-
-
 
 Route::get('/apiwater-resources', [WaterResourceController::class, 'fetchWaterResources']);
 Route::get('/water-resources', [WaterResourceController::class, 'index'])->name('water-resources');
